@@ -9,10 +9,10 @@ module.exports = function(environment) {
 
     // CSP
     contentSecurityPolicy: {
-      'default-src': "'none' 'unsafe-eval'",
+      'default-src': "'self' 'unsafe-eval' localhost",
       'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
       'font-src': "'self' http://fonts.gstatic.com",
-      'connect-src': "'self' 'unsafe-eval' ",
+      'connect-src': "'self' localhost:3000",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
       'media-src': "'self'"
@@ -35,7 +35,7 @@ module.exports = function(environment) {
   // Simple Auth
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:oauth2-bearer',
-    store: 'simple-auth-session-store:cookie',
+    //store: 'simple-auth-session-store:cookie',
     routeAfterAuthentication: 'dashboard',
     routeIfAlreadyAuthenticated: 'dashboard'
   };
@@ -52,8 +52,8 @@ module.exports = function(environment) {
 
 
   if (environment === 'development') {
-    ENV.contentSecurityPolicy['connect-src'] = "'self' 'unsafe-eval' 'http://localhost:3000/oauth/token'";
-    ENV['simple-auth'].crossOriginWhitelist = ['http://localhost:3000'];
+    ENV.contentSecurityPolicy['connect-src'] = "'self' 'unsafe-eval' localhost:3000";
+    ENV['simple-auth'].crossOriginWhitelist = ['http://localhost:3000/'];
     ENV['simple-auth-oauth2'] = {
       serverTokenEndpoint: 'http://localhost:3000/oauth/token'
     };
