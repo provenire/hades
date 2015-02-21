@@ -12,7 +12,7 @@ module.exports = function(environment) {
       'default-src': "'none' 'unsafe-eval'",
       'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
       'font-src': "'self' http://fonts.gstatic.com",
-      'connect-src': "'self' 'unsafe-eval'",
+      'connect-src': "'self' 'unsafe-eval' ",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
       'media-src': "'self'"
@@ -31,12 +31,32 @@ module.exports = function(environment) {
     }
   };
 
+
+  // Simple Auth
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:oauth2-bearer',
+    store: 'simple-auth-session-store:cookie',
+    routeAfterAuthentication: 'dashboard',
+    routeIfAlreadyAuthenticated: 'dashboard'
+  };
+
+  ENV['simple-auth-oauth2'] = {
+    serverTokenEndpoint: '/oauth/token'
+  };
+
+  ENV['simple-auth-cookie-store'] = {
+    cookieName: '_antiquarium_auth'
+  };
+
+
+
+
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.contentSecurityPolicy['connect-src'] = "'self' 'unsafe-eval' 'http://localhost:3000/oauth/token'";
+    ENV['simple-auth'].crossOriginWhitelist = ['http://localhost:3000'];
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'http://localhost:3000/oauth/token'
+    };
   }
 
   if (environment === 'test') {

@@ -14,8 +14,8 @@
   <div class="sidebar-menu">
     <ul class="menu-items">
 
-      {{#link-to 'index' tagName='li' href=false class='m-t-30'}}
-        {{#link-to 'index' class='detailed'}}
+      {{#link-to 'dashboard' tagName='li' href=false class='m-t-30'}}
+        {{#link-to 'dashboard' class='detailed'}}
           <span class="title">Dashboard</span>
         {{/link-to}}
         <span class="icon-thumbnail"><i class="fa fa-dashboard"></i></span>
@@ -142,6 +142,27 @@
           <!-- / Notifications -->
 
           <!-- User -->
+          <li class="p-r-15 inline fs-16">
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="menu">
+                <span class="text-master">
+                  Miles Zimmerman <i class="pg-arrow_minimize"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu profile-dropdown" role="menu">
+                <li>
+                  <a href="#"><i class="pg-settings_small"></i> Settings</a>
+                </li>
+
+                <li class="bg-master-lighter">
+                  <a href="logout" {{action 'invalidateSession'}} class="clearfix">
+                    <span class="pull-left">Logout</span>
+                    <span class="pull-right"><i class="pg-power"></i></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
           <!-- / User -->
         </ul>
 
