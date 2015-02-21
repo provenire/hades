@@ -105,4 +105,88 @@
 <!-- END SIDEBAR -->
 
 
-{{outlet}}
+
+<!-- PAGE CONTAINER -->
+<div class="page-container">
+
+  <!-- HEADER -->
+  <div class="header ">
+    <!-- Mobile Controls -->
+    <div class="pull-left full-height visible-sm visible-xs">
+      <div class="sm-action-bar">
+        <a href="#" class="btn-link toggle-sidebar" data-toggle="sidebar">
+          <span class="icon-set menu-hambuger"></span>
+        </a>
+      </div>
+    </div>
+    <div class="pull-right full-height visible-sm visible-xs">
+      <div class="sm-action-bar">
+        <a href="#" class="btn-link" data-toggle="quickview" data-toggle-element="#quickview">
+          <span class="icon-set menu-hambuger-plus"></span>
+        </a>
+      </div>
+    </div>
+    <!-- / Mobile Controls -->
+
+
+    <div class=" pull-left sm-table">
+      <div class="header-inner">
+        <!-- Logo -->
+        <div class="brand inline">
+          <img alt="logo" width="190" src="/assets/antiquarium/antiquarium/antiquarium@2x.png" data-src="/assets/antiquarium/antiquarium/antiquarium@2x.png" data-src-retina="/assets/antiquarium/antiquarium/antiquarium.png@2x.png">
+        </div>
+        <!-- / Logo -->
+
+        <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
+          <!-- Notifications -->
+          <!-- / Notifications -->
+
+          <!-- User -->
+          <!-- / User -->
+        </ul>
+
+        <!-- Search -->
+        <a href="#" class="search-link" data-toggle="search">
+          <i class="pg-search"></i>Type anywhere to <span class="bold">search</span>
+        </a>
+        <!-- / Search -->
+      </div>
+    </div>
+
+
+    <!-- Page Controls -->
+    <div class=" pull-right">
+      <div class="header-inner">
+        <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
+      </div>
+    </div>
+    <!-- / Page Controls -->
+  </div>
+  <!-- / PAGE HEADER -->
+
+
+  <div class="page-content-wrapper">
+    <div class="content">
+
+      {{outlet}}
+
+    </div>
+
+
+    <!-- START FOOTER -->
+    <div class="container-fluid container-fixed-lg footer">
+      <div class="copyright sm-text-center">
+        <p class="small no-margin pull-left sm-pull-reset">
+          <span class="hint-text">Copyright © 2015</span>
+          <span class="font-montserrat">Antiquarium LLC</span>.
+          <span class="hint-text">All rights reserved.</span>
+          <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="/legal/privacy_policy" class="m-l-10">Privacy Policy</a>
+          </span>
+        </p>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+  </div>
+</div>
+<!-- / PAGE CONTAINER -->
