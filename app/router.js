@@ -6,6 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('artifacts');
+  this.route('people');
+  this.route('places');
+  this.route('sources');
 });
 
 export default Router;

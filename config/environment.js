@@ -10,7 +10,7 @@ module.exports = function(environment) {
     // CSP
     contentSecurityPolicy: {
       'default-src': "'none' 'unsafe-eval'",
-      'script-src': "'self' 'unsafe-eval'",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
       'font-src': "'self' http://fonts.gstatic.com",
       'connect-src': "'self' 'unsafe-eval'",
       'img-src': "'self'",
