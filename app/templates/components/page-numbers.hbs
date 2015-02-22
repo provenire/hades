@@ -1,0 +1,29 @@
+<ul>
+  <li {{bind-attr class=":prev canStepBackward::disabled"}}>
+    <a href="javascript:;" {{action "incrementPage" -1}}>
+      <i class="pg-arrow_left"></i>
+    </a>
+  </li>
+
+  {{#each item in pageItems}}
+    {{#if item.dots}}
+    {{/if}}
+    {{#if item.current}}
+      <li class="active">
+        <a>{{item.page}}</a>
+      </li>
+    {{else}}
+      <li>
+        <a href="javascript:;" {{action "pageClicked" item.page}}>{{item.page}}</a>
+      </li>
+    {{/if}}
+  {{/each}}
+
+
+  <li {{bind-attr class=":next canStepForward::disabled"}}>
+    <a href="javascript:;" {{action "incrementPage" 1}}>
+      <i class="pg-arrow_right"></i>
+    </a>
+  </li>
+
+</ul>

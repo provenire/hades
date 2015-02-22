@@ -12,8 +12,8 @@ module.exports = function(environment) {
       'default-src': "'self' 'unsafe-eval' localhost",
       'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
       'font-src': "'self' http://fonts.gstatic.com",
-      'connect-src': "'self' localhost:3000",
-      'img-src': "'self'",
+      'connect-src': "'self' ",
+      'img-src': "'self' res.cloudinary.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
       'media-src': "'self'"
     },

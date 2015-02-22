@@ -1,6 +1,13 @@
-import Ember from 'ember';
-import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import Ember    from 'ember';
+import Auth     from 'simple-auth/mixins/authenticated-route-mixin';
+import Paginate from 'ember-cli-pagination/remote/route-mixin';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  titleToken: 'Places'
+export default Ember.Route.extend(Auth, Paginate, {
+  titleToken: 'Places',
+
+  perPage: 10,
+
+  model: function(params) {
+    return this.findPaged('place', params);
+  }
 });
