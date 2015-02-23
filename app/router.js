@@ -12,26 +12,28 @@ Router.map(function() {
 
   // User
   this.route('dashboard');
+  this.resource('user', { path: '/users/:user_id' }, function() {});
+  this.resource('users', function() {});
 
 
   // Artifacts
-  this.route('artifacts');
-  this.route('artifact', { path: '/artifacts/:artifact_id' });
+  this.resource('artifact', { path: '/artifacts/:artifact_id' }, function() {});
+  this.resource('artifacts', function() {});
 
 
   // People
-  this.route('people');
-  this.route('person', { path: '/people/:person_id' });
+  this.resource('person', { path: '/people/:person_id' }, function() {});
+  this.resource('people', function() {});
 
 
   // Places
-  this.route('places');
-  this.route('place', { path: '/places/:place_id' });
+  this.resource('place', { path: '/places/:place_id' }, function() {});
+  this.resource('places', function() {});
 
 
   // Sources
-  this.route('sources');
-  this.route('source', { path: '/sources/:source_id' });
+  this.resource('source', { path: '/sources/:source_id' }, function() {});
+  this.resource('sources', function() {});
 
 });
 
