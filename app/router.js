@@ -12,7 +12,9 @@ Router.map(function() {
 
   // User
   this.route('dashboard');
-  this.resource('user', { path: '/users/:user_id' }, function() {});
+  this.resource('user', { path: '/users/:user_id' }, function() {
+    this.route('edit');
+  });
   this.resource('users', function() {});
 
 

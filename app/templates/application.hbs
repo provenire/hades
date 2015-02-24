@@ -27,33 +27,33 @@
       </li>
 
 
-      <li class="">
+      <li {{bind-attr class='exploreRoute:active'}}>
         <a href="javascript:;">
           <span class="title">Explore</span>
-          <span class="arrow"></span>
+          <span {{bind-attr class=":arrow exploreRoute:open"}}></span>
         </a>
         <span class="icon-thumbnail "><img src="/assets/antiquarium/svg/explore.svg" width="15"></span>
 
         <ul class="sub-menu">
-          {{#link-to 'artifacts' tagName='li' href=false}}
+          <li {{bind-attr class='artifactRoute:active'}}>
             {{#link-to 'artifacts.index'}}Artifacts{{/link-to}}
             <span class="icon-thumbnail"><i class="fa fa-cubes"></i></span>
-          {{/link-to}}
+          </li>
 
-          {{#link-to 'people' tagName='li' href=false}}
+          <li {{bind-attr class='personRoute:active'}}>
             {{#link-to 'people'}}People{{/link-to}}
             <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
-          {{/link-to}}
+          </li>
 
-          {{#link-to 'places' tagName='li' href=false}}
+          <li {{bind-attr class='placeRoute:active'}}>
             {{#link-to 'places'}}Places{{/link-to}}
             <span class="icon-thumbnail"><i class="pg-map"></i></span>
-          {{/link-to}}
+          </li>
 
-          {{#link-to 'sources' tagName='li' href=false}}
+          <li {{bind-attr class='sourceRoute:active'}}>
             {{#link-to 'sources'}}Sources{{/link-to}}
             <span class="icon-thumbnail"><i class="fa fa-sitemap"></i></span>
-          {{/link-to}}
+          </li>
 
         </ul>
       </li>
@@ -138,6 +138,44 @@
 
         <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
           <!-- Notifications -->
+          <li class="p-r-15 inline fs-16">
+            <div class="dropdown">
+              <a href="javascript:;" id="notification-center" class="" data-toggle="dropdown">
+                <span class="fs-13 label">0</span>
+              </a>
+              <div class="dropdown-menu notification-toggle" role="menu" aria-labelledby="notification-center">
+                <div class="notification-panel">
+                  <div class="notification-body scrollable">
+
+                    <!-- Task Item -->
+                    <div class="notification-item unread clearfix">
+                      <div class="heading">
+                        <a href="#" class="text-complete">
+                          <i class="fa fa-envelope m-r-10"></i>
+                          <span class="bold">Notifications Subject</span>
+                          <span class="fs-12 m-l-10">New message</span>
+                        </a>
+                        <span class="pull-right time">
+                          1 min ago
+                        </span>
+                      </div>
+                      <div class="option" data-toggle="tooltip" data-placement="left" title="mark as read">
+                        <a href="javascript:;" class="mark"></a>
+                      </div>
+                    </div>
+                    <!-- / Task Item -->
+
+                  </div>
+                  <div class="notification-footer text-center">
+                    <a href="#" class="">See all notifications</a>
+                    <a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="#">
+                      <i class="pg-refresh_new"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
           <!-- / Notifications -->
 
           <!-- User -->
@@ -149,9 +187,13 @@
                 </span>
               </a>
               <ul class="dropdown-menu profile-dropdown" role="menu">
-                <li>
-                  <a href="#"><i class="pg-settings_small"></i> Settings</a>
-                </li>
+                {{#link-to 'user.index' session.currentUser.slug tagName='li' href=false}}
+                  {{#link-to 'user.index' session.currentUser.slug}}<i class="fa fa-user"></i> Profile{{/link-to}}
+                {{/link-to}}
+
+                {{#link-to 'user.edit' session.currentUser.slug tagName='li' href=false}}
+                  {{#link-to 'user.edit' session.currentUser.slug}}<i class="pg-settings_small"></i> Settings{{/link-to}}
+                {{/link-to}}
 
                 <li class="bg-master-lighter">
                   <a href="logout" {{action 'invalidateSession'}} class="clearfix">

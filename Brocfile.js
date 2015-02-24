@@ -62,7 +62,7 @@ app.import('vendor/pages/plugins/skycons/skycons.js');
 app.import('vendor/pages/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js');
 
 // Pages
-app.import('vendor/pages/assets/js/pages.min.js');
+app.import('vendor/pages/assets/js/pages.js');
 
 
 
