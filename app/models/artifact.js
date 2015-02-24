@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+
+  // Standard
   uuid:        DS.attr('string'),
   slug:        DS.attr('string'),
   name:        DS.attr('string'),
@@ -11,8 +13,17 @@ export default DS.Model.extend({
 
   excerpt:     DS.attr('string'),
   thumbnail:   DS.attr('string'),
+  showImage:   DS.attr('string'),
 
-  artist:      DS.attr('string'),
-  dimensions:  DS.attr('string'),
-  dateCreated: DS.attr('string')
+
+  // Artifact
+  alternateNames: DS.attr('array'),
+  artist:         DS.attr('string'),
+  dimensions:     DS.attr('string'),
+  dateCreated:    DS.attr('string'),
+
+
+  // Associations
+  events: DS.hasMany('event', { async: true })
+
 });

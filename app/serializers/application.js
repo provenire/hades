@@ -9,6 +9,9 @@ export default DS.ActiveModelSerializer.extend({
     delete json.created_at;
     delete json.updated_at;
 
+    delete json.thumbnail;
+    delete json.show_image;
+
     return json;
   }
 });

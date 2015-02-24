@@ -45,17 +45,17 @@
 }
 
 
-.ownership-history-panel > .panel > .panel-heading > .panel-title {
+.ownership-history-panel .panel > .panel-heading > .panel-title {
   text-transform: none;
 }
 
-.ownership-history-panel > .panel.panel-default {
+.ownership-history-panel .panel.panel-default {
   border: 0;
   border-bottom: 1px solid rgba(230, 230, 230, 0.7);
   border-radius: 0;
 }
 
-.ownership-history-panel > .panel + .panel {
+.ownership-history-panel .panel + .panel {
   margin-top: 0;
 }
 
