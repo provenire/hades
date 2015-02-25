@@ -23,12 +23,12 @@ module.exports = function(environment) {
   // CSP
   ENV.contentSecurityPolicy = {
     'default-src': "'self' 'unsafe-eval'",
-    'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
-    'font-src': "'self' https://fonts.gstatic.com",
+    'script-src': "'self' 'unsafe-eval' 'unsafe-inline' https://s3-us-west-1.amazonaws.com",
+    'font-src': "'self' https://fonts.gstatic.com https://s3-us-west-1.amazonaws.com",
     'connect-src': "'self' 'unsafe-eval' " + ENV.APP.apiBase,
-    'img-src': "'self' res.cloudinary.com",
-    'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
-    'media-src': "'self'"
+    'img-src': "'self' res.cloudinary.com https://s3-us-west-1.amazonaws.com",
+    'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://s3-us-west-1.amazonaws.com",
+    'media-src': "'self' https://s3-us-west-1.amazonaws.com"
   };
 
 
