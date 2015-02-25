@@ -8,17 +8,15 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     EmberENV: { FEATURES: {} },
-    APP:      {}
+    APP: {
+      apiBase: 'https://api.antiquarium.io'
+    }
   };
 
 
   // Environment specifics
   if (environment === 'development') {
-    ENV.apiBase = 'http://localhost:3000';
-  }
-
-  if (environment === 'production') {
-    ENV.apiBase = 'https://api.antiquarium.io';
+    ENV.APP.apiBase = 'http://localhost:3000';
   }
 
 
@@ -27,7 +25,7 @@ module.exports = function(environment) {
     'default-src': "'self' 'unsafe-eval'",
     'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
     'font-src': "'self' https://fonts.gstatic.com",
-    'connect-src': "'self' 'unsafe-eval' " + ENV.apiBase,
+    'connect-src': "'self' 'unsafe-eval' " + ENV.APP.apiBase,
     'img-src': "'self' res.cloudinary.com",
     'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
     'media-src': "'self'"
@@ -39,11 +37,11 @@ module.exports = function(environment) {
     authorizer: 'simple-auth-authorizer:oauth2-bearer',
     routeAfterAuthentication:    'dashboard',
     routeIfAlreadyAuthenticated: 'dashboard',
-    crossOriginWhitelist:        [ENV.apiBase]
+    crossOriginWhitelist:        [ENV.APP.apiBase]
   };
 
   ENV['simple-auth-oauth2'] = {
-    serverTokenEndpoint: ENV.apiBase + '/oauth/token'
+    serverTokenEndpoint: ENV.APP.apiBase + '/oauth/token'
   };
 
 

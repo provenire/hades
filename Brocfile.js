@@ -2,7 +2,8 @@
 var EmberApp   = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   fingerprint: {
-    prepend: 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/'
+    prepend: 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/',
+    extensions: ['js', 'css', 'png', 'jpg', 'gif', 'eot', 'ttf', 'svg', 'woff', 'cur']
   }
 });
 
@@ -76,19 +77,31 @@ app.import('vendor/pages/assets/js/pages.js');
  */
 var assets = [
   app.static('vendor/pages/plugins/font-awesome', {
-    srcDir:  '/fonts', destDir: '/fonts', files: ['**/*.eot','**/*.svg','**/*.ttf','**/*.woff']
+    srcDir:  '/fonts', destDir: '/assets/fonts', files: ['**/*.eot','**/*.svg','**/*.ttf','**/*.woff']
   }),
   app.static('vendor/pages/plugins/boostrapv3', {
-    srcDir:  '/fonts', destDir: '/fonts', files: ['**/*.eot','**/*.svg','**/*.ttf','**/*.woff']
+    srcDir:  '/fonts', destDir: '/assets/fonts', files: ['**/*.eot','**/*.svg','**/*.ttf','**/*.woff']
   }),
   app.static('vendor/pages/assets/fonts', {
-    srcDir:  '/pages-icon', destDir: '/fonts/pages-icon', files: ['**/*.eot','**/*.svg','**/*.ttf','**/*.woff']
+    srcDir:  '/pages-icon', destDir: '/assets/fonts/pages-icon', files: ['**/*.eot','**/*.svg','**/*.ttf','**/*.woff']
   }),
   app.static('vendor/pages/assets/fonts', {
-    srcDir:  '/montserrat', destDir: '/fonts/montserrat', files: ['**/*.svg','**/*.ttf']
+    srcDir:  '/montserrat', destDir: '/assets/fonts/montserrat', files: ['**/*.svg','**/*.ttf']
+  }),
+  app.static('vendor/pages/plugins/mapplic', {
+    srcDir:  '/css/images', destDir: '/assets/images', files: ['**/*.cur','**/*.png','**/*.gif']
+  }),
+  app.static('vendor/pages/plugins/jquery-metrojs', {
+    srcDir:  '/images', destDir: '/assets/images', files: ['**/*.jpg','**/*.gif']
+  }),
+  app.static('vendor/pages/plugins/jquery-ui', {
+    srcDir:  '/images', destDir: '/assets/images', files: ['**/*.png','**/*.gif']
+  }),
+  app.static('vendor/pages/plugins/bootstrap-select2', {
+    srcDir:  '/', destDir: '/assets', files: ['*.png','*.gif']
   }),
   app.static('vendor/pages/assets', {
-    srcDir:  '/img', destDir: '/img', files: ['**/*.svg','**/*.png','**/*.jpg','**/*.gif']
+    srcDir:  '/img', destDir: '/assets/img', files: ['**/*.svg','**/*.png','**/*.jpg','**/*.gif']
   })
 ];
 
