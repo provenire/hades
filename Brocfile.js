@@ -3,7 +3,7 @@ var EmberApp   = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   fingerprint: {
     enabled:    true,
-    prepend:    'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/',
+    prepend:    'https://dibl93mcd0mee.cloudfront.net/',
     extensions: ['js', 'css', 'png', 'jpg', 'gif', 'eot', 'ttf', 'svg', 'woff', 'cur'],
     exclude:    ['antiquarium/no_photo']
   }
