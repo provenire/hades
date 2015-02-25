@@ -10,6 +10,15 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     sessionAuthenticationSucceeded: function() {
       location.reload();
     },
+
+    loading: function() {
+      Ember.$('[data-pages-progress="circle"]').each(function() {
+        var $progress = $(this);
+        $progress.circularProgress($progress.data());
+      });
+
+      return true;
+    }
   },
 
   renderTemplate: function() {
