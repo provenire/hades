@@ -7,73 +7,46 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
 
-    // CSP
-    contentSecurityPolicy: {
-      'default-src': "'self' 'unsafe-eval' localhost",
-      'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
-      'font-src': "'self' http://fonts.gstatic.com",
-      'connect-src': "'self' ",
-      'img-src': "'self' res.cloudinary.com",
-      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
-      'media-src': "'self'"
-    },
+    EmberENV: { FEATURES: {} },
+    APP:      {}
+  };
 
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
-    },
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
+  // Environment specifics
+  if (environment === 'development') {
+    ENV.apiBase = 'http://localhost:3000';
+  }
+
+  if (environment === 'production') {
+    ENV.apiBase = 'https://api.antiquarium.io';
+  }
+
+
+  // CSP
+  ENV.contentSecurityPolicy = {
+    'default-src': "'self' 'unsafe-eval'",
+    'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
+    'font-src': "'self' https://fonts.gstatic.com",
+    'connect-src': "'self' 'unsafe-eval' " + ENV.apiBase,
+    'img-src': "'self' res.cloudinary.com",
+    'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+    'media-src': "'self'"
   };
 
 
   // Simple Auth
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:oauth2-bearer',
-    //store: 'simple-auth-session-store:cookie',
-    routeAfterAuthentication: 'dashboard',
-    routeIfAlreadyAuthenticated: 'dashboard'
+    routeAfterAuthentication:    'dashboard',
+    routeIfAlreadyAuthenticated: 'dashboard',
+    crossOriginWhitelist:        [ENV.apiBase]
   };
 
   ENV['simple-auth-oauth2'] = {
-    serverTokenEndpoint: '/oauth/token'
-  };
-
-  ENV['simple-auth-cookie-store'] = {
-    cookieName: '_antiquarium_auth'
+    serverTokenEndpoint: ENV.apiBase + '/oauth/token'
   };
 
 
-
-
-  if (environment === 'development') {
-    ENV.contentSecurityPolicy['connect-src'] = "'self' 'unsafe-eval' localhost:3000";
-    ENV['simple-auth'].crossOriginWhitelist = ['http://localhost:3000/'];
-    ENV['simple-auth-oauth2'] = {
-      serverTokenEndpoint: 'http://localhost:3000/oauth/token'
-    };
-  }
-
-  if (environment === 'test') {
-    // Testem prefers this...
-    ENV.baseURL = '/';
-    ENV.locationType = 'none';
-
-    // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
-
-    ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production') {
-
-  }
 
   return ENV;
 };

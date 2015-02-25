@@ -1,7 +1,12 @@
 /* global require, module */
 var EmberApp   = require('ember-cli/lib/broccoli/ember-app');
-var app        = new EmberApp();
-    app.static = require('broccoli-static-compiler');
+var app = new EmberApp({
+  fingerprint: {
+    prepend: 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/'
+  }
+});
+
+app.static = require('broccoli-static-compiler');
 
 
 /**
