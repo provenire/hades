@@ -2,10 +2,17 @@
 var EmberApp   = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   fingerprint: {
-    prepend: 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/',
-    extensions: ['js', 'css', 'png', 'jpg', 'gif', 'eot', 'ttf', 'svg', 'woff', 'cur']
+    enabled:    true,
+    prepend:    'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/',
+    extensions: ['js', 'css', 'png', 'jpg', 'gif', 'eot', 'ttf', 'svg', 'woff', 'cur'],
+    exclude:    ['antiquarium/no_photo']
   }
 });
+
+if (app.env === 'development') {
+  app.options.fingerprint.prepend = '/';
+  app.options.fingerprint.extensions = ['png', 'jpg', 'gif', 'eot', 'ttf', 'svg', 'woff', 'cur'];
+}
 
 app.static = require('broccoli-static-compiler');
 
