@@ -24,7 +24,7 @@ export default Ember.ObjectController.extend({
           style:    'bar',
           position: 'top',
           type:     'danger',
-          message:  '<b>Error updating profile: </b>' + error.responseJSON.errors.join(', ')
+          message:  '<b>Error updating profile: </b>' + error.responseJSON.error
         }).show();
       });
     },

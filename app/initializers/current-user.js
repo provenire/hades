@@ -6,7 +6,7 @@ export function initialize(container) {
   Session.reopen({
       setCurrentUser: function() {
         var self = this;
-        var url = ENV.APP.apiBase + '/users/me.json';
+        var url = ENV.APP.apiBase + '/users/me';
         Ember.$.getJSON(url).then(function(me) {
           return container.lookup("store:main").find('user', me.user.id).then(function(user) {
             self.set("currentUser", user);

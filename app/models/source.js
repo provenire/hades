@@ -20,6 +20,10 @@ export default DS.Model.extend({
   authors:     DS.attr('string'),
   dateCreated: DS.attr('date'),
   attribution: DS.attr('string'),
-  identifier:  DS.attr('string')
+  identifier:  DS.attr('string'),
+
+
+  // Associations
+  pages:       DS.hasMany('page')
 
 });
