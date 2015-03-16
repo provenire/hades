@@ -37,6 +37,9 @@ Router.map(function() {
   this.resource('source', { path: '/sources/:source_id' }, function() {});
   this.resource('sources', function() {});
 
+
+  // Affiliations
+  this.resource('affiliation', { path: '/affiliations/:affiliation_id' }, function() {});
 });
 
 export default Router;
