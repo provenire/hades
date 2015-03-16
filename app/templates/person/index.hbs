@@ -114,7 +114,7 @@
               {{#if affiliations}}
                 <table class="table table-borderless table-condensed">
                   <tbody>
-                    {{#each affiliation in affiliations}}
+                    {{#each affiliation in affiliations itemController='affiliation'}}
                       <tr>
                         <td style="width:30%;" class="v-align-middle bold">{{affiliation.year}}</td>
                         <td style="width:70%;" class="v-align-middle">
