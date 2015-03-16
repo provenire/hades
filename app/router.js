@@ -45,6 +45,10 @@ Router.map(function() {
   // Events
   this.resource('event', { path: '/events/:event_id' }, function() {});
 
+
+
+  // 404
+  this.route('not-found', { path: '/*path' });
 });
 
 export default Router;

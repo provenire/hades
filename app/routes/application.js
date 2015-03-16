@@ -18,6 +18,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       });
 
       return true;
+    },
+
+    error: function(error) {
+      Ember.Logger.error(error);
+      if (error.status === 404) {
+        this.transitionTo('/not-found');
+      }
     }
   },
 
