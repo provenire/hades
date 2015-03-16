@@ -34,6 +34,7 @@ module.exports = function(environment) {
 
   // Simple Auth
   ENV['simple-auth'] = {
+    store:      'simple-auth-session-store:cookie',
     authorizer: 'simple-auth-authorizer:oauth2-bearer',
     routeAfterAuthentication:    'dashboard',
     routeIfAlreadyAuthenticated: 'dashboard',
@@ -42,6 +43,10 @@ module.exports = function(environment) {
 
   ENV['simple-auth-oauth2'] = {
     serverTokenEndpoint: ENV.APP.apiBase + '/oauth/token'
+  };
+
+  ENV['simple-auth-cookie-store'] = {
+    cookieName: '_antiquarium_session'
   };
 
 

@@ -12,7 +12,6 @@ export default DS.Model.extend({
   updatedAt:   DS.attr('date'),
 
   excerpt:     DS.attr('string'),
-  thumbnail:   DS.attr('string'),
 
 
   // Source
@@ -21,9 +20,11 @@ export default DS.Model.extend({
   dateCreated: DS.attr('date'),
   attribution: DS.attr('string'),
   identifier:  DS.attr('string'),
+  totalPages:  DS.attr('number'),
+  image:       DS.attr('object'),
 
 
   // Associations
-  pages:       DS.hasMany('page')
+  pages:       DS.hasMany('page', { async: true })
 
 });

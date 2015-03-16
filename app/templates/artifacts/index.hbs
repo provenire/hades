@@ -34,7 +34,7 @@
           <tr>
             <td class="v-align-middle">
               {{#link-to 'artifact' artifact.slug}}
-                <img {{bind-attr src=artifact.thumbnail}} width="100">
+                {{image-block src=artifact.picture.image.index width=100}}
               {{/link-to}}
             </td>
             <td>

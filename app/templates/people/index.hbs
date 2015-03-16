@@ -34,7 +34,7 @@
           <tr>
             <td class="v-align-middle">
               {{#link-to 'person' person.slug}}
-                <img {{bind-attr src=person.thumbnail}} width="100">
+                {{image-block src=person.picture.image.index width=100}}
               {{/link-to}}
             </td>
             <td>

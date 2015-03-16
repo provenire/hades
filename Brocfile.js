@@ -74,6 +74,9 @@ app.import('vendor/pages/plugins/jquery-sparkline/jquery.sparkline.min.js');
 app.import('vendor/pages/plugins/skycons/skycons.js');
 app.import('vendor/pages/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js');
 
+// Plugins
+app.import('bower_components/holderjs/holder.js');
+
 // Pages
 app.import('vendor/pages/assets/js/pages.js');
 

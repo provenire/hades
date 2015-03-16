@@ -1,7 +1,7 @@
 {
   "name": "hades",
   "version": "0.0.0",
-  "description": "Small description for hades goes here",
+  "description": "Antiquarium Frontend",
   "private": true,
   "directories": {
     "doc": "doc",
