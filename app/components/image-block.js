@@ -20,9 +20,9 @@ export default Ember.Component.extend({
 
   defaultSrc: function() {
     if (this.get('width') > 200) {
-      return '/assets/antiquarium/no_photo/500@2x.png';
+      return 'https://dibl93mcd0mee.cloudfront.net/assets/antiquarium/no_photo/500@2x.png';
     } else {
-      return '/assets/antiquarium/no_photo/100.png';
+      return 'https://dibl93mcd0mee.cloudfront.net/assets/antiquarium/no_photo/100.png';
     }
   }.property('width')
 
