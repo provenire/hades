@@ -20,13 +20,8 @@ export default DS.Model.extend({
   failed:        DS.attr('boolean'),
 
 
-  // Decorators
-  subjectName:   DS.attr('string'),
-  recipientName: DS.attr('string'),
-  artifactsName: DS.attr('string'),
-
-
   // Associations
-  artifacts: DS.hasMany('artifact', { async: true })
+  artifacts: DS.hasMany('artifact', { async: true }),
+  sources:   DS.hasMany('source',   { async: true })
 
 });

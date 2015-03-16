@@ -40,6 +40,11 @@ Router.map(function() {
 
   // Affiliations
   this.resource('affiliation', { path: '/affiliations/:affiliation_id' }, function() {});
+
+
+  // Events
+  this.resource('event', { path: '/events/:event_id' }, function() {});
+
 });
 
 export default Router;

@@ -13,7 +13,9 @@
     <div class="panel-body">
       <p class="small hint-text">{{event.name}}</p>
       <p>{{event.description}}</p>
-      <p class="pull-right small">See event</p>
+      <p class="pull-right small">
+        {{#link-to 'event.index' event.slug}}See event{{/link-to}}
+      </p>
     </div>
   </div>
 </div>
