@@ -1,14 +1,26 @@
 import Ember  from 'ember';
-import { moment } from 'ember-moment/computed';
 
 export default Ember.ObjectController.extend({
-  startYear: moment('startDate', 'YYYY'),
-  endYear:   moment('endDate', 'YYYY'),
+  startYear: function() {
+    var date = this.get('startDate');
+    if (date) {
+      return date.getFullYear();
+    } else {
+      return '';
+    }
+  }.property('startDate'),
+
+  endYear: function() {
+    var date = this.get('endDate');
+    if (date) {
+      return date.getFullYear();
+    } else {
+      return '';
+    }
+  }.property('endDate'),
 
   year: function() {
-    var start = this.get('startYear') || 'Unknown';
-    var end   = this.get('endYear')   || 'Unknown';
-    return start + ' - ' + end;
+    return this.get('startYear') + ' - ' + this.get('endYear');
   }.property('startYear', 'endYear')
 
 });

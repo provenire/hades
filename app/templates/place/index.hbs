@@ -49,3 +49,89 @@
   </div>
 </div>
 <!-- END JUMBOTRON -->
+
+<!-- START CONTAINER FLUID -->
+<div class="container-fluid container-fixed-lg">
+  <div class="row">
+
+    <div class="col-md-7">
+      <!-- START PANEL -->
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Event History</div>
+        </div>
+        <div class="panel-body">
+
+          <div class="panel panel-group panel-transparent ownership-history-panel" data-toggle="collapse" id="accordion">
+
+            {{#each event in events}}
+              {{event-accordion event=event}}
+            {{/each}}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-5">
+      <div class="panel">
+        <ul class="nav nav-tabs nav-tabs-simple" role="tablist">
+          <li class="active">
+            <a href="#details" data-toggle="tab" role="tab">Details</a>
+          </li>
+          <li>
+            <a href="#affiliations" data-toggle="tab" role="tab">Affiliations</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="details">
+            <div class="table-responsive">
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td style="width:30%;padding:12px;" class="v-align-middle bold">Address</td>
+                    <td style="width:70%;padding:12px;" class="v-align-middle">{{safe-attribute address}}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:12px;" class="v-align-middle bold">Lattitue</td>
+                    <td style="padding:12px;" class="v-align-middle">{{safe-attribute lattitue}}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:12px;" class="v-align-middle bold">Longitute</td>
+                    <td style="padding:12px;" class="v-align-middle">{{safe-attribute longitute}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane " id="affiliations">
+            <div class="table-responsive">
+              {{#if affiliations}}
+                <table class="table table-borderless table-condensed">
+                  <tbody>
+                    {{#each affiliation in affiliations itemController='affiliation'}}
+                      <tr>
+                        <td style="width:30%;" class="v-align-middle bold">{{affiliation.year}}</td>
+                        <td style="width:70%;" class="v-align-middle">
+                          {{#link-to 'affiliation' affiliation.slug class='text-master'}}
+                            {{affiliation.person.name}}
+                          {{/link-to}}
+                        </td>
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              {{else}}
+                <p><em>No known affiliations.</em></p>
+              {{/if}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- END CONTAINER FLUID -->
